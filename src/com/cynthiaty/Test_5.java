@@ -3,6 +3,7 @@ package com.cynthiaty;
 /**
  * 作者：cynthiaty
  * 功能：实现接口 VS 继承类
+ * 时间：2017-06-20
  */
 public class Test_5 {
     public static void main(String[] args) {
