@@ -28,7 +28,7 @@ public class Test_7 {
         //bubble.sort(arr);
         //select.sort(arr);
         //insert.sort(arr);
-        quick.sort(0, arr.length -1, arr);
+        quick.sort(0, arr.length - 1, arr);
         calendar = Calendar.getInstance();
         System.out.println("排序后：" + calendar.getTime());
 
