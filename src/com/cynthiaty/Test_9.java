@@ -1,8 +1,7 @@
 package com.cynthiaty;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 /**
  * 作者：cynthiaty
@@ -167,6 +166,7 @@ class EmpManage {
 
     //员工按薪水由高到低排序
     public void sortSal() {
+        /* 方法一
         //选择排序，假设第一个员工是薪水最高的，依次比较
         for(int i = 0; i < al.size() - 1; i++) {
             Employee maxSalEmp = (Employee) al.get(i);
@@ -181,6 +181,24 @@ class EmpManage {
 
             al.set(maxIndex, al.get(i));
             al.set(i, maxSalEmp);
+        }*/
+
+        //方法二
+        Collections.sort(al, new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                //return Float.compare(o1.getSal(), o2.getSal());   //由小到大升序排序
+                return Float.compare(o2.getSal(), o1.getSal());   //由大到小降序排序
+            }
+        });
+
+        System.out.println("按薪水由高到低进行排序，结果如下：");
+
+        for(Object varAl: al) {
+            Employee tempEmp = (Employee) varAl;
+            System.out.println("编号 = " + tempEmp.getNo() + "  "
+                    + "姓名 = " + tempEmp.getName() + "  "
+                    + "薪水 = " + tempEmp.getSal());
         }
     }
 
@@ -233,8 +251,17 @@ class EmpManage {
     public void showInfo() {
         System.out.println("员工信息表如下：");
 
+        /*方法一
         for(int i = 0; i < al.size(); i++) {
             Employee tempEmp = (Employee)al.get(i);
+            System.out.println("编号 = " + tempEmp.getNo() + "  "
+                    + "姓名 = " + tempEmp.getName() + "  "
+                    + "薪水 = " + tempEmp.getSal());
+        }*/
+
+        //方法二
+        for(Object varAl: al) {
+            Employee tempEmp = (Employee) varAl;
             System.out.println("编号 = " + tempEmp.getNo() + "  "
                     + "姓名 = " + tempEmp.getName() + "  "
                     + "薪水 = " + tempEmp.getSal());
